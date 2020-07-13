@@ -116,7 +116,7 @@ headercolor="#3d3d5c"
 
 #WORLD & US MAPS
 l_map=go.Layout(
-    height=725,
+    height=670,
     margin={"r":0,"t":0,"l":0,"b":0},
     geo={
     'visible': True, 
@@ -148,7 +148,7 @@ l_bar_w=go.Layout(
 
 #SIMPLE BARS
 l_bar_s=go.Layout(
-  height=250,
+  height=225,
   margin={"r":10,"t":10,"l":10,"b":20},
   #template="plotly_white",
   plot_bgcolor=boxcolor,
@@ -232,8 +232,8 @@ def make_fig_2(country):
   return fig
 
 def make_fig_3(d, label, metric):
-    fig = go.Figure(go.Bar(y=d[d["label"]==label].sort_values(by=metric, ascending=True)["country"][-11:],
-                          x=d[d["label"]==label].sort_values(by=metric,ascending=True)[metric][-11:],
+    fig = go.Figure(go.Bar(y=d[d["label"]==label].sort_values(by=metric, ascending=True)["country"][-10:],
+                          x=d[d["label"]==label].sort_values(by=metric,ascending=True)[metric][-10:],
                          orientation='h'
                         )
                  )
@@ -250,14 +250,15 @@ app.layout = html.Div([
 
   html.Div([#header
     html.Div([
-      html.H3("World Energy Consumption", style={"color": headercolor})
+      html.H3("World Energy Consumption", style={"color": headercolor, "marginBottom": "0.2%"}),
+      html.P('Data source: U.S. Energy Information Administration. Per GDP numbers are on a purchasing power parity (PPP) basis, and based on the 2015 value of the US dollar',style={'font-size': '1rem','color':'#696969',"marginBottom": "0.5%"}),
       ],
     className='row',
     style={'paddingTop':'1%', 'text-align':'center'}
     ),
   html.Div([#body
     html.Div([#left six columns
-      html.H5("Global, as of 2017 (QBtu)", style={"color": headercolor}),
+      html.H5("Global, as of 2017 (QBtu)", style={"color": headercolor, "marginBottom": "2%"}),
       html.Div([
         dcc.Dropdown(
           id='metric-select',
@@ -275,7 +276,7 @@ app.layout = html.Div([
       ),
     html.Div([#right six columns
       html.Div([#right top half row
-        html.H5("By energy source", style={"color": headercolor}),
+        html.H5("By energy source", style={"color": headercolor, "marginBottom": "2%"}),
         html.Div([
           dcc.Dropdown(
           id='metric-select1b',
@@ -284,7 +285,7 @@ app.layout = html.Div([
           multi = False
           )
           ],
-          style={'marginBottom':'2%'}
+          style={'marginBottom':'1%'}
           ),
         html.Div([
           dcc.Graph(id="country-trend", 
@@ -310,11 +311,11 @@ app.layout = html.Div([
           ),
         ],
         className='row',
-        style={'background-color':boxcolor, 'border-radius': '5px','box-shadow': '2px 2px 2px lightgrey','padding':'2%', 'marginBottom':'2%'},
+        style={'background-color':boxcolor, 'border-radius': '5px','box-shadow': '2px 2px 2px lightgrey','padding':'2%', 'marginBottom':'1%'},
         ),
       html.Div([#right bottom half row
         html.Div([#four columns for absolute bars
-          html.H6("Top 10: Energy consumption", style={"color": headercolor}),
+          html.H6("Top 10: Energy consumption", style={"color": headercolor, "marginBottom": "2%"}),
           html.Div([
             dcc.Dropdown(
               id='metric-select2',
@@ -331,7 +332,7 @@ app.layout = html.Div([
           style={'background-color':boxcolor, 'border-radius': '5px','box-shadow': '2px 2px 2px lightgrey','padding':'1%','marginBottom':'2%'},
           ),
         html.Div([#four columns for dependency bars
-          html.H6("Top 10: Relative dependence", style={"color": headercolor}),
+          html.H6("Top 10: Relative dependence", style={"color": headercolor, "marginBottom": "2%"}),
           html.Div([
             dcc.Dropdown(
               id='metric-select3',
@@ -348,7 +349,7 @@ app.layout = html.Div([
           style={'background-color':boxcolor, 'border-radius': '5px','box-shadow': '2px 2px 2px lightgrey', 'padding':'1%','marginBottom':'2%'},
           ),
         html.Div([#four columns for intensity bars
-          html.H6("Top 10: Energy intensity", style={"color": headercolor}),
+          html.H6("Top 10: Energy intensity", style={"color": headercolor, "marginBottom": "2%"}),
           html.Div([
             dcc.Dropdown(
               id='metric-select4',
@@ -373,9 +374,16 @@ app.layout = html.Div([
     ],
     style={'padding':'0'},
     className="row"
-    )
+    ),
+  html.Div([#footer
+    html.A("Built by Anthony S N Maina", href='https://www.linkedin.com/in/anthonymaina/', target="_blank", style={'font-size': '1rem',"marginBottom": "0%"})
     ],
-    style={'marginLeft':'1%','marginRight':'1%'})
+    className='row',
+    style={ 'text-align':'center'}
+    ),
+    ], 
+    style={'marginLeft':'1%','marginRight':'1%'}),
+
 ],
 style={'backgroundColor': background, 'margin':0}
 )
