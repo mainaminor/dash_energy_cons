@@ -251,7 +251,7 @@ app.layout = html.Div([
   html.Div([#header
     html.Div([
       html.H3("World Energy Consumption", style={"color": headercolor, "marginBottom": "0.2%"}),
-      html.P('Data source: U.S. Energy Information Administration. Per GDP numbers are on a purchasing power parity (PPP) basis, and based on the 2015 value of the US dollar',style={'font-size': '1rem','color':'#696969',"marginBottom": "0.5%"}),
+      html.P('Data source: U.S. Energy Information Administration. Per GDP numbers are on a purchasing power parity (PPP) basis, and based on the 2015 value of the US dollar',style={'font-size': '1rem','color':'#696969',"marginBottom": "1%"}),
       ],
     className='row',
     style={'paddingTop':'1%', 'text-align':'center'}
