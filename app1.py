@@ -82,7 +82,7 @@ metrics=[
 
 
 countries = []
-for tic in set(obj["country"]):
+for tic in obj["country"].drop_duplicates().sort_values():
   countries.append({'label':tic, 'value':tic})
 
 def rank_statement(label, country, metric):
