@@ -250,7 +250,7 @@ app.layout = html.Div([
 
   html.Div([#header
     html.Div([
-      html.H3("World Energy Consumption", style={"color": headercolor, "marginBottom": "0.2%"}),
+      html.H3("Global Energy Consumption", style={"color": headercolor, "marginBottom": "0.2%"}),
       html.P('Data source: U.S. Energy Information Administration. Per GDP numbers are on a purchasing power parity (PPP) basis, and based on the 2015 value of the US dollar',style={'font-size': '1rem','color':'#696969',"marginBottom": "0%"}),
       ],
     className='row',
@@ -258,7 +258,7 @@ app.layout = html.Div([
     ),
   html.Div([#body
     html.Div([#left six columns
-      html.H5("Global, as of 2017 (QBtu)", style={"color": headercolor, "marginBottom": "2%"}),
+      html.H5("Worldwide, as of 2017", style={"color": headercolor, "marginBottom": "2%"}),
       html.Div([
         dcc.Dropdown(
           id='metric-select',
@@ -464,7 +464,7 @@ def update_text(country):
   [Input('metric-select1b', 'value')])
 def update_text(country):
   if country=="World":
-    text="Energy consumption per capita: {} QBtuPP".format(int(energy_int["lastValue"][energy_int["country"]=="World"].iloc[1]))
+    text="Energy consumption per capita: {} MBtuPP".format(int(energy_int["lastValue"][energy_int["country"]=="World"].iloc[1]))
   else:
     text=rank_statement("Total energy consumption", country, "MBtuPP")
   return text
