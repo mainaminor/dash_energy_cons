@@ -21,7 +21,7 @@ app.index_string = '''
         {%metas%}
         <title>Global Energy Consumption</title>
         <meta property="og:title" content="Global Energy Consumption">
-        <meta name="image" property="og:image" content="assets/energy_cons.png">
+        <meta property="og:image" content="assets/energy_cons.png">
         <meta name="description" property="og:description" content="An interactive mini-dashboard built and deployed by me in Python, giving a summary of energy use by country and type.">
         <meta name="author" content="Anthony S N Maina">
         {%favicon%}
