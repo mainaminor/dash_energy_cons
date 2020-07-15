@@ -12,7 +12,9 @@ import numpy as np
 external_stylesheets = ['https://codepen.io/mainaminor/pen/wvaOEmY.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets, 
-  meta_tags=[{"name": "viewport", "content": "width=device-width"}]
+  meta_tags=[{"name": "viewport", "content": "width=device-width"},
+  {"name": "image", "property": "og:image", "content": "images/energy_cons.png"}
+  ]
   )
 server = app.server
 
