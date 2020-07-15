@@ -12,10 +12,32 @@ import numpy as np
 external_stylesheets = ['https://codepen.io/mainaminor/pen/wvaOEmY.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets, 
-  meta_tags=[{"name": "viewport", "content": "width=device-width"},
-  {"name": "image", "property": "og:image", "content": "images/energy_cons.png"}
-  ]
-  )
+  meta_tags=[{"name": "viewport", "content": "width=device-width"}])
+
+app.index_string = '''
+<!DOCTYPE html>
+<html>
+    <head>
+        {%metas%}
+        <title>Global Energy Consumption</title>
+        <meta property="og:title" content="Global Energy Consumption">
+        <meta name="image" property="og:image" content="assets/energy_cons.png">
+        <meta name="description" property="og:description" content="An interactive mini-dashboard built and deployed by me in Python, giving a summary of energy use by country and type.">
+        <meta name="author" content="Anthony S N Maina">
+        {%favicon%}
+        {%css%}
+    </head>
+    <body>
+        {%app_entry%}
+        <footer>
+            {%config%}
+            {%scripts%}
+            {%renderer%}
+        </footer>
+    </body>
+</html>
+'''
+
 server = app.server
 
 ##############################
