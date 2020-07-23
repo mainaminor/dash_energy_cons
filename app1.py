@@ -24,6 +24,10 @@ app.index_string = '''
         <meta property="og:image" content="assets/energy_cons.png">
         <meta name="description" property="og:description" content="An interactive mini-dashboard built and deployed by me in Python, giving a summary of energy use by country and type.">
         <meta name="author" content="Anthony S N Maina">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
         {%favicon%}
         {%css%}
     </head>
